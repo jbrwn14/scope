@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope - AI Construction Quoting Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#64748b'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        .demo-room {
+            transition: all 0.3s ease;
+        }
+        .demo-room:hover {
+            transform: scale(1.05);
+        }
+        .demo-room.highlight {
+            box-shadow: 0 0 30px currentColor;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-effect border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-cube text-2xl text-primary mr-2"></i>
+                        <span class="text-xl font-bold text-gray-900">Scope</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="text-gray-700 hover:text-primary font-medium">Features</a>
+                    <a href="#demo" class="text-gray-700 hover:text-primary font-medium">Demo</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-primary font-medium">Pricing</a>
+                    <button class="bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                        Start Free Trial
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-16 gradient-bg overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+                <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+                    <h1 class="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl">
+                        <span class="block">Transform Your</span>
+                        <span class="block text-yellow-300">Construction Quotes</span>
+                    </h1>
+                    <p class="mt-3 text-base text-gray-200 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+                        AI-powered 3D visualization with color-coded trades. Create professional presentations that win more bids and reduce estimation errors by 31%.
+                    </p>
+                    <div class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button onclick="scrollToDemo()" class="w-full sm:w-auto bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+                                Try Interactive Demo
+                            </button>
+                            <button onclick="scheduleDemo()" class="w-full sm:w-auto border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors">
+                                Schedule Demo
+                            </button>
+                        </div>
+                        <div class="mt-6 flex items-center justify-center lg:justify-start text-white">
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                            </div>
+                            <span class="ml-2 text-sm">Trusted by 500+ contractors</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
+                    <div class="relative mx-auto w-full rounded-lg shadow-2xl lg:max-w-md">
+                        <div class="bg-white rounded-lg p-6">
+                            <div class="text-center mb-4">
+                                <h3 class="text-lg font-semibold text-gray-900">Live Quote Preview</h3>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center p-3 bg-blue-50 rounded">
+                                    <span class="flex items-center">
+                                        <div class="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
+                                        Electrical
+                                    </span>
+                                    <span class="font-semibold">$8,500</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-green-50 rounded">
+                                    <span class="flex items-center">
+                                        <div class="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+                                        Plumbing
+                                    </span>
+                                    <span class="font-semibold">$12,200</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-red-50 rounded">
+                                    <span class="flex items-center">
+                                        <div class="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
+                                        HVAC
+                                    </span>
+                                    <span class="font-semibold">$15,600</span>
+                                </div>
+                                <div class="border-t pt-3 mt-3">
+                                    <div class="flex justify-between items-center font-bold text-lg">
+                                        <span>Total Project</span>
+                                        <span class="text-green-600">$56,700</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Trusted by leading contractors</p>
+                <div class="mt-6 grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
+                    <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+                        <div class="h-12 bg-gray-200 rounded flex items-center px-4">
+                            <span class="text-gray-600 font-semibold">ABC Construction</span>
+                        </div>
+                    </div>
+                    <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+                        <div class="h-12 bg-gray-200 rounded flex items-center px-4">
+                            <span class="text-gray-600 font-semibold">Premier Builders</span>
+                        </div>
+                    </div>
+                    <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+                        <div class="h-12 bg-gray-200 rounded flex items-center px-4">
+                            <span class="text-gray-600 font-semibold">Elite Renovations</span>
+                        </div>
+                    </div>
+                    <div class="col-span-1 flex justify-center md:col-span-3 lg:col-span-1">
+                        <div class="h-12 bg-gray-200 rounded flex items-center px-4">
+                            <span class="text-gray-600 font-semibold">Modern Homes</span>
+                        </div>
+                    </div>
+                    <div class="col-span-2 flex justify-center md:col-span-3 lg:col-span-1">
+                        <div class="h-12 bg-gray-200 rounded flex items-center px-4">
+                            <span class="text-gray-600 font-semibold">Luxury Living</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-base text-primary font-semibold tracking-wide uppercase">Features</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Everything you need to win more bids
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Professional tools that save time, reduce errors, and impress customers.
+                </p>
+            </div>
+
+            <div class="mt-16">
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white mb-4">
+                            <i class="fas fa-eye text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900">3D Visualization</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            Interactive 3D project views with color-coded trades that customers can actually understand.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white mb-4">
+                            <i class="fas fa-calculator text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900">AI-Powered Pricing</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            Automated cost calculations with real-time pricing updates and labor rate adjustments.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white mb-4">
+                            <i class="fas fa-file-pdf text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900">Professional Quotes</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            Branded PDF generation with detailed breakdowns and professional presentation format.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white mb-4">
+                            <i class="fas fa-mobile-alt text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900">Mobile Presentations</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            Tablet-optimized interface for on-site customer presentations and quote reviews.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-yellow-500 text-white mb-4">
+                            <i class="fas fa-link text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900">Integrations</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            Connect with QuickBooks, supplier catalogs, and your existing project management tools.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white mb-4">
+                            <i class="fas fa-chart-line text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900">Analytics</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            Track bid win rates, identify profitable project types, and optimize your pricing strategy.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section id="demo" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Try the Interactive Demo
+                </h2>
+                <p class="mt-4 text-xl text-gray-600">
+                    Click on trades to see the color-coded visualization in action
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- 3D Visualization Panel -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold mb-4">Project Layout</h3>
+                    <div class="bg-gray-100 rounded-lg h-64 relative mb-6 overflow-hidden">
+                        <div class="demo-room absolute top-4 left-4 w-20 h-16 bg-blue-500 text-white rounded flex items-center justify-center text-xs font-semibold cursor-pointer" onclick="selectRoom('kitchen')">
+                            Kitchen
+                        </div>
+                        <div class="demo-room absolute top-4 right-4 w-24 h-20 bg-green-500 text-white rounded flex items-center justify-center text-xs font-semibold cursor-pointer" onclick="selectRoom('living')">
+                            Living Room
+                        </div>
+                        <div class="demo-room absolute bottom-4 left-4 w-16 h-12 bg-red-500 text-white rounded flex items-center justify-center text-xs font-semibold cursor-pointer" onclick="selectRoom('bathroom')">
+                            Bathroom
+                        </div>
+                        <div class="demo-room absolute bottom-4 right-4 w-20 h-16 bg-purple-500 text-white rounded flex items-center justify-center text-xs font-semibold cursor-pointer" onclick="selectRoom('bedroom')">
+                            Bedroom
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2 mb-4">
+                        <button class="trade-btn px-3 py-2 text-sm border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-500 transition-colors" onclick="selectTrade('electrical')">
+                            💡 Electrical
+                        </button>
+                        <button class="trade-btn px-3 py-2 text-sm border border-gray-300 rounded hover:bg-green-50 hover:border-green-500 transition-colors" onclick="selectTrade('plumbing')">
+                            🚰 Plumbing
+                        </button>
+                        <button class="trade-btn px-3 py-2 text-sm border border-gray-300 rounded hover:bg-red-50 hover:border-red-500 transition-colors" onclick="selectTrade('hvac')">
+                            🌡️ HVAC
+                        </button>
+                        <button class="trade-btn px-3 py-2 text-sm border border-gray-300 rounded hover:bg-yellow-50 hover:border-yellow-500 transition-colors" onclick="selectTrade('flooring')">
+                            🏠 Flooring
+                        </button>
+                        <button class="trade-btn px-3 py-2 text-sm border border-gray-300 rounded hover:bg-purple-50 hover:border-purple-500 transition-colors" onclick="selectTrade('lighting')">
+                            💫 Lighting
+                        </button>
+                        <button class="trade-btn px-3 py-2 text-sm border border-gray-300 rounded hover:bg-teal-50 hover:border-teal-500 transition-colors" onclick="selectTrade('painting')">
+                            🎨 Painting
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Cost Calculator Panel -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold mb-4">Real-Time Cost Calculator</h3>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex justify-between items-center p-3 bg-white rounded border">
+                            <span class="flex items-center">
+                                <div class="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
+                                Electrical
+                            </span>
+                            <span class="font-semibold" id="electricalCost">$8,500</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-white rounded border">
+                            <span class="flex items-center">
+                                <div class="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+                                Plumbing
+                            </span>
+                            <span class="font-semibold" id="plumbingCost">$12,200</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-white rounded border">
+                            <span class="flex items-center">
+                                <div class="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
+                                HVAC
+                            </span>
+                            <span class="font-semibold" id="hvacCost">$15,600</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-white rounded border">
+                            <span class="flex items-center">
+                                <div class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
+                                Flooring
+                            </span>
+                            <span class="font-semibold" id="flooringCost">$9,800</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-white rounded border">
+                            <span class="flex items-center">
+                                <div class="w-3 h-3 bg-purple-500 rounded-full mr-2"></div>
+                                Lighting
+                            </span>
+                            <span class="font-semibold" id="lightingCost">$6,400</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-white rounded border">
+                            <span class="flex items-center">
+                                <div class="w-3 h-3 bg-teal-500 rounded-full mr-2"></div>
+                                Painting
+                            </span>
+                            <span class="font-semibold" id="paintingCost">$4,200</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-green-50 rounded border-2 border-green-500 font-bold text-lg">
+                            <span>Total Project</span>
+                            <span class="text-green-600" id="totalCost">$56,700</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Labor Rate ($/hour)</label>
+                            <input type="number" id="laborRate" value="85" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" onchange="updateCosts()">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Markup %</label>
+                            <input type="number" id="markupPercent" value="25" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" onchange="updateCosts()">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Project Type</label>
+                            <select id="projectType" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" onchange="updateCosts()">
+                                <option value="luxury">Luxury Renovation</option>
+                                <option value="standard">Standard Renovation</option>
+                                <option value="commercial">Commercial Project</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quote Generation -->
+            <div class="mt-8 bg-primary rounded-lg p-6 text-white">
+                <h3 class="text-xl font-semibold mb-4 text-center">Generate Professional Quote</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <input type="text" placeholder="Customer Name" class="px-4 py-2 rounded border text-gray-900">
+                    <input type="text" placeholder="Project Address" class="px-4 py-2 rounded border text-gray-900">
+                    <input type="date" class="px-4 py-2 rounded border text-gray-900">
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="generateQuote()" class="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        📄 Generate Quote PDF
+                    </button>
+                    <button onclick="presentToCustomer()" class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors">
+                        👥 Present to Customer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Simple, Transparent Pricing
+                </h2>
+                <p class="mt-4 text-xl text-gray-600">
+                    Choose the plan that fits your business needs
+                </p>
+            </div>
+
+            <div class="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-6 lg:max-w-4xl lg:mx-auto">
+                <!-- Starter Plan -->
+                <div class="bg-white border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
+                    <div class="p-6">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">Starter</h3>
+                        <p class="mt-4 text-sm text-gray-500">Perfect for small contractors</p>
+                        <p class="mt-8">
+                            <span class="text-4xl font-extrabold text-gray-900">$199</span>
+                            <span class="text-base font-medium text-gray-500">/month</span>
+                        </p>
+                        <button class="mt-8 block w-full bg-gray-800 border border-gray-800 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-gray-900">
+                            Start Free Trial
+                        </button>
+                    </div>
+                    <div class="pt-6 pb-8 px-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1"></i><span class="text-gray-500">5 projects per month</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1"></i><span class="text-gray-500">Basic 3D visualization</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1"></i><span class="text-gray-500">PDF quote generation</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1"></i><span class="text-gray-500">Email support</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Professional Plan -->
+                <div class="bg-white border-2 border-primary rounded-lg shadow-sm divide-y divide-gray-200 relative">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <span class="inline-flex px-4 py-1 rounded-full text-sm font-semibold tracking-wide uppercase bg-primary text-white">
+                            Most Popular
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">Professional</h3>
+                        <p class="mt-4 text-sm text-gray-500">Best for growing businesses</p>
+                        <p class="mt-8">
+                            <span class="text-4xl font-extrabold text-gray-900">$399</span>
+                            <span class="text-base font-medium text-gray-500">/month</span>
+                        </p>
+                        <button class="mt-8 block w-full bg-primary border border-primary rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-blue-700">
+                            Start Free Trial
+                        </button>
+                    </div>
+                    <div class="pt-6 pb-8 px-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1"></i><span class="text-gray-500">Unlimited projects</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1"></i><span class="text-gray-500">Advanced AI features</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1"></i><span class="text-gray-500">Mobile presentation mode</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1"></i><span class="text-gray-500">Supplier integrations</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1"></i><span class="text-gray-500">Priority support</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="bg-white border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
+                    <div class="p-6">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">Enterprise</h3>
+                        <p class="mt-4 text-sm text-gray-500">For large construction companies</p>
+                        <p class="mt-8">
+                            <span class="text-4xl font-extrabold text-gray-900">$799</span>
+                            <span class="text-base font-medium text-gray-500">/month</span>
+                        </p>
+                        <button class="mt-8 block w-full bg-gray-800 border border-gray-800 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-gray-900">
+                            Contact Sales
+                        </button>
+                    </div>
+                    <div class="pt-6 pb-8 px-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1"></i><span class="text-gray-500">Multi-user accounts</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1"></i><span class="text-gray-500">API access</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1"></i><span class="text-gray-500">Custom integrations</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1"></i><span class="text-gray-500">White-label options</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1"></i><span class="text-gray-500">Dedicated support</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-primary">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+            <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                <span class="block">Ready to transform your quotes?</span>
+                <span class="block text-yellow-300">Start your free trial today.</span>
+            </h2>
+            <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+                <div class="inline-flex rounded-md shadow">
+                    <button class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-gray-50">
+                        Start Free Trial
+                    </button>
+                </div>
+                <div class="ml-3 inline-flex rounded-md shadow">
+                    <button onclick="scheduleDemo()" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                        Schedule Demo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+            <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+                <div class="space-y-8 xl:col-span-1">
+                    <div class="flex items-center">
+                        <i class="fas fa-cube text-2xl text-primary mr-2"></i>
+                        <span class="text-xl font-bold text-gray-900">Scope</span>
+                    </div>
+                    <p class="text-gray-500 text-base">
+                        Transforming construction quoting with AI-powered 3D visualization and professional presentation tools.
+                    </p>
+                </div>
+                <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Product</h3>
+                            <ul class="mt-4 space-y-4">
+                                <li><a href="#features" class="text-base text-gray-500 hover:text-gray-900">Features</a></li>
+                                <li><a href="#demo" class="text-base text-gray-500 hover:text-gray-900">Demo</a></li>
+                                <li><a href="#pricing" class="text-base text-gray-500 hover:text-gray-900">Pricing</a></li>
+                            </ul>
+                        </div>
+                        <div class="mt-12 md:mt-0">
+                            <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Support</h3>
+                            <ul class="mt-4 space-y-4">
+                                <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Help Center</a></li>
+                                <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Training</a></li>
+                                <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-200 pt-8">
+                <p class="text-base text-gray-400 xl:text-center">
+                    &copy; 2025 Scope. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let selectedTrade = null;
+        
+        const baseCosts = {
+            electrical: 8500,
+            plumbing: 12200,
+            hvac: 15600,
+            flooring: 9800,
+            lighting: 6400,
+            painting: 4200
+        };
+
+        const tradeColors = {
+            electrical: '#3b82f6',
+            plumbing: '#10b981',
+            hvac: '#ef4444',
+            flooring: '#f59e0b',
+            lighting: '#8b5cf6',
+            painting: '#14b8a6'
+        };
+
+        function selectTrade(trade) {
+            // Remove active state from all buttons
+            document.querySelectorAll('.trade-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-500', 'text-white', 'border-blue-500');
+            });
+            
+            // Add active state to clicked button
+            event.target.classList.add('bg-blue-500', 'text-white', 'border-blue-500');
+            
+            selectedTrade = trade;
+            highlightRooms(trade);
+        }
+
+        function highlightRooms(trade) {
+            const rooms = document.querySelectorAll('.demo-room');
+            const roomTrades = {
+                kitchen: ['electrical', 'plumbing', 'lighting'],
+                living: ['electrical', 'flooring', 'painting'],
+                bathroom: ['plumbing', 'hvac', 'lighting'],
+                bedroom: ['flooring', 'painting', 'lighting']
+            };
+
+            rooms.forEach(room => {
+                const roomClass = room.onclick.toString().match(/'(\w+)'/)[1];
+                if (roomTrades[roomClass] && roomTrades[roomClass].includes(trade)) {
+                    room.classList.add('highlight');
+                    room.style.color = tradeColors[trade];
+                } else {
+                    room.style.opacity = '0.5';
+                    room.classList.remove('highlight');
+                }
+            });
+        }
+
+        function selectRoom(room) {
+            alert(`Selected ${room}! In the full app, this would show detailed trade breakdown for this room.`);
+        }
+
+        function updateCosts() {
+            const laborRate = parseFloat(document.getElementById('laborRate').value) || 85;
+            const markupPercent = parseFloat(document.getElementById('markupPercent').value) || 25;
+            const projectType = document.getElementById('projectType').value;
+            
+            let multiplier = projectType === 'luxury' ? 1.3 : projectType === 'commercial' ? 1.5 : 1;
+            let total = 0;
+            
+            Object.keys(baseCosts).forEach(trade => {
+                const cost = Math.round(baseCosts[trade] * multiplier * (1 + markupPercent / 100));
+                document.getElementById(`${trade}Cost`).textContent = `$${cost.toLocaleString()}`;
+                total += cost;
+            });
+            
+            document.getElementById('totalCost').textContent = `$${total.toLocaleString()}`;
+        }
+
+        function generateQuote() {
+            alert('Professional Quote Generated!\n\nIn the full app, this would create a branded PDF with:\n• 3D visualizations\n• Detailed cost breakdowns\n• Timeline and milestones\n• Terms and conditions\n• Digital signature capability');
+        }
+
+        function presentToCustomer() {
+            alert('Customer Presentation Mode!\n\nIn the full app, this would:\n• Switch to customer-friendly interface\n• Hide contractor pricing controls\n• Enable touch interactions for tablets\n• Show financing options\n• Allow digital contract signing');
+        }
+
+        function scheduleDemo() {
+            alert('Demo Scheduling!\n\nIn the full app, this would open a calendar booking system to schedule a personalized demo with our sales team.');
+        }
+
+        function scrollToDemo() {
+            document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCosts();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
